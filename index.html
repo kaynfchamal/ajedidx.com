@@ -1,0 +1,263 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  .site{background:#0a0a0f;color:#fff;font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden;}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid rgba(255,255,255,0.07);position:sticky;top:0;background:rgba(10,10,15,0.95);backdrop-filter:blur(12px);z-index:10;}
+  .logo{font-size:20px;font-weight:900;letter-spacing:-0.5px;}
+  .logo span{color:#7c6fff;}
+  .nav-links{display:flex;gap:28px;}
+  .nav-links a{color:rgba(255,255,255,0.55);font-size:13.5px;text-decoration:none;cursor:pointer;transition:color 0.2s;}
+  .nav-links a:hover{color:#fff;}
+  .nav-right{display:flex;gap:12px;align-items:center;}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);padding:8px 18px;border-radius:8px;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;}
+  .btn-primary{background:#7c6fff;border:none;color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;font-family:'Inter',sans-serif;}
+  .hero{padding:80px 40px 60px;text-align:center;}
+  .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(124,111,255,0.12);border:1px solid rgba(124,111,255,0.3);color:#a89fff;padding:5px 14px;border-radius:100px;font-size:12px;margin-bottom:24px;}
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:#7c6fff;}
+  .hero h1{font-size:56px;font-weight:900;line-height:1.08;letter-spacing:-2px;max-width:680px;margin:0 auto 20px;}
+  .hero h1 .accent{color:#7c6fff;}
+  .hero p{color:rgba(255,255,255,0.45);font-size:16px;max-width:480px;margin:0 auto 36px;line-height:1.7;}
+  .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .btn-big{padding:13px 28px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;}
+  .btn-big.primary{background:#7c6fff;border:none;color:#fff;}
+  .btn-big.secondary{background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);}
+  .stats{display:flex;justify-content:center;gap:48px;padding:40px 40px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);}
+  .stat{text-align:center;}
+  .stat strong{display:block;font-size:28px;font-weight:900;letter-spacing:-1px;}
+  .stat span{color:rgba(255,255,255,0.35);font-size:12px;margin-top:2px;display:block;}
+  .section{padding:60px 40px;}
+  .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;}
+  .section-title{font-size:22px;font-weight:700;letter-spacing:-0.5px;}
+  .see-all{color:rgba(255,255,255,0.35);font-size:13px;cursor:pointer;}
+  .see-all:hover{color:#7c6fff;}
+  .cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .card{background:#13131a;border:1px solid rgba(255,255,255,0.07);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color 0.2s,transform 0.2s;}
+  .card:hover{border-color:rgba(124,111,255,0.4);transform:translateY(-2px);}
+  .card-thumb{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;letter-spacing:-1px;}
+  .card-thumb.purple{background:linear-gradient(135deg,#1a1040,#2d1f6e);}
+  .card-thumb.blue{background:linear-gradient(135deg,#0a1628,#1a3a6e);}
+  .card-thumb.dark{background:linear-gradient(135deg,#111,#1e1e1e);}
+  .card-thumb.teal{background:linear-gradient(135deg,#041818,#0a3030);}
+  .card-thumb .label{color:rgba(255,255,255,0.9);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+  .card-body{padding:12px 14px 14px;}
+  .card-name{font-size:13.5px;font-weight:600;margin-bottom:4px;}
+  .card-meta{display:flex;align-items:center;justify-content:space-between;}
+  .card-by{color:rgba(255,255,255,0.35);font-size:11.5px;}
+  .card-price{font-size:13px;font-weight:700;}
+  .card-price.free{color:#4ade80;}
+  .card-price.paid{color:#fff;}
+  .card-tag{display:inline-block;background:rgba(124,111,255,0.12);color:#a89fff;font-size:10px;padding:2px 8px;border-radius:100px;margin-bottom:6px;}
+  .featured{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:60px;}
+  .feat-card{border-radius:16px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;min-height:180px;border:1px solid rgba(255,255,255,0.08);}
+  .feat-card.dark-feat{background:#13131a;}
+  .feat-card.purple-feat{background:linear-gradient(135deg,#1a1040,#2d1f6e);border-color:rgba(124,111,255,0.3);}
+  .feat-icon{font-size:28px;margin-bottom:12px;}
+  .feat-title{font-size:18px;font-weight:800;letter-spacing:-0.5px;margin-bottom:6px;}
+  .feat-desc{color:rgba(255,255,255,0.45);font-size:13px;line-height:1.6;}
+  .feat-link{color:#7c6fff;font-size:13px;font-weight:600;margin-top:16px;cursor:pointer;}
+  .footer{border-top:1px solid rgba(255,255,255,0.07);padding:40px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{font-size:16px;font-weight:900;}
+  .footer-logo span{color:#7c6fff;}
+  .footer-copy{color:rgba(255,255,255,0.2);font-size:12px;}
+  .footer-links{display:flex;gap:20px;}
+  .footer-links a{color:rgba(255,255,255,0.3);font-size:12px;text-decoration:none;}
+  .filter-bar{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;}
+  .filter-btn{background:transparent;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45);padding:6px 16px;border-radius:100px;font-size:12.5px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;}
+  .filter-btn.active,.filter-btn:hover{background:rgba(124,111,255,0.15);border-color:rgba(124,111,255,0.4);color:#a89fff;}
+</style>
+<div class="site">
+  <nav class="nav">
+    <div class="logo">⚡ <span>Ajedidx</span></div>
+    <div class="nav-links">
+      <a>After Effects</a>
+      <a>Premiere Pro</a>
+      <a>DaVinci</a>
+      <a>Freebies</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-ghost">Sign in</button>
+      <button class="btn-primary">Browse all</button>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="badge"><span class="dot"></span> Motion Graphics & Design Resources</div>
+    <h1>Premium<br><span class="accent">Templates</span> for<br>Creators</h1>
+    <p>High-quality motion graphics, presets, and templates for After Effects, Premiere Pro, and DaVinci Resolve.</p>
+    <div class="hero-btns">
+      <button class="btn-big primary">Browse templates</button>
+      <button class="btn-big secondary">View freebies</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><strong>120+</strong><span>Templates</span></div>
+    <div class="stat"><strong>4</strong><span>Platforms</span></div>
+    <div class="stat"><strong>Free</strong><span>Updates</span></div>
+    <div class="stat"><strong>∞</strong><span>License</span></div>
+  </div>
+
+  <div class="section">
+    <div style="display:flex;gap:16px;margin-bottom:32px;">
+      <div class="feat-card purple-feat">
+        <div>
+          <div class="feat-icon">🎬</div>
+          <div class="feat-title">Get once, use forever</div>
+          <div class="feat-desc">Universal license — use on unlimited projects, with unlimited clients. No subscriptions.</div>
+        </div>
+        <div class="feat-link">Learn more →</div>
+      </div>
+      <div class="feat-card dark-feat">
+        <div>
+          <div class="feat-icon">🎁</div>
+          <div class="feat-title">Free updates</div>
+          <div class="feat-desc">Lifetime customer support and all future updates at no extra cost.</div>
+        </div>
+        <div class="feat-link">See what's new →</div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <div class="section-title">Top picks</div>
+      <div class="see-all">See all →</div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">After Effects</button>
+      <button class="filter-btn">Premiere Pro</button>
+      <button class="filter-btn">DaVinci</button>
+      <button class="filter-btn">Free</button>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-thumb purple"><span class="label">TITLES</span></div>
+        <div class="card-body">
+          <div class="card-tag">After Effects</div>
+          <div class="card-name">Motion Titles Pack</div>
+          <div class="card-meta">
+            <span class="card-by">by ajedidx</span>
+            <span class="card-price paid">$39</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb teal"><span class="label">GLASS UI</span></div>
+        <div class="card-body">
+          <div class="card-tag">Premiere Pro</div>
+          <div class="card-name">Liquid Glass Kit</div>
+          <div class="card-meta">
+            <span class="card-by">by ajedidx</span>
+            <span class="card-price free">Free</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb blue"><span class="label">PRESETS</span></div>
+        <div class="card-body">
+          <div class="card-tag">DaVinci</div>
+          <div class="card-name">Cinematic LUTs</div>
+          <div class="card-meta">
+            <span class="card-by">by ajedidx</span>
+            <span class="card-price paid">$25</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb dark"><span class="label">ELEMENTS</span></div>
+        <div class="card-body">
+          <div class="card-tag">After Effects</div>
+          <div class="card-name">2500 Elements Pack</div>
+          <div class="card-meta">
+            <span class="card-by">by ajedidx</span>
+            <span class="card-price paid">$89</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-header">
+      <div class="section-title">New releases</div>
+      <div class="see-all">See all →</div>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-thumb purple"><span class="label">MOJI</span></div>
+        <div class="card-body">
+          <div class="card-tag">After Effects</div>
+          <div class="card-name">Moji Graphics Pack</div>
+          <div class="card-meta">
+            <span class="card-by">by ajedidx</span>
+            <span class="card-price paid">$49</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb blue"><span class="label">LOWER 3RD</span></div>
+        <div class="card-body">
+          <div class="card-tag">Premiere Pro</div>
+          <div class="card-name">Lower Thirds Pro</div>
+          <div class="card-meta">
+            <span class="card-by">by ajedidx</span>
+            <span class="card-price free">Free</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb teal"><span class="label">TRANSITIONS</span></div>
+        <div class="card-body">
+          <div class="card-tag">DaVinci</div>
+          <div class="card-name">Smooth Transitions</div>
+          <div class="card-meta">
+            <span class="card-by">by ajedidx</span>
+            <span class="card-price paid">$29</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb dark"><span class="label">ICONS</span></div>
+        <div class="card-body">
+          <div class="card-tag">After Effects</div>
+          <div class="card-name">Animated Icons Set</div>
+          <div class="card-meta">
+            <span class="card-by">by ajedidx</span>
+            <span class="card-price free">Free</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#0d0d14;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);padding:48px 40px;text-align:center;">
+    <div style="font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:12px;letter-spacing:1px;text-transform:uppercase;">More coming soon</div>
+    <div style="font-size:22px;font-weight:800;margin-bottom:8px;">Stay in the loop</div>
+    <div style="color:rgba(255,255,255,0.35);font-size:14px;margin-bottom:24px;">New products, updates, and exclusive deals.</div>
+    <div style="display:flex;gap:8px;max-width:360px;margin:0 auto;">
+      <input type="email" placeholder="your@email.com" style="flex:1;background:#1a1a24;border:1px solid rgba(255,255,255,0.1);color:#fff;padding:10px 16px;border-radius:8px;font-size:13px;outline:none;font-family:'Inter',sans-serif;">
+      <button class="btn-primary" style="padding:10px 20px;border-radius:8px;white-space:nowrap;">Subscribe</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-logo">⚡ <span>Ajedidx</span></div>
+    <div class="footer-copy">© 2026 Ajedidx. All rights reserved.</div>
+    <div class="footer-links">
+      <a>About</a>
+      <a>Licenses</a>
+      <a>Refunds</a>
+      <a>Contact</a>
+    </div>
+  </footer>
+</div>
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
